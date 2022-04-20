@@ -26,7 +26,7 @@ namespace Alura.WebAPI.WebApp.Api
         }
 
         [HttpPost]
-        public IActionResult Include(LivroUpload model)
+        public IActionResult Include([FromBody] LivroUpload model)
         {
             if (ModelState.IsValid)
             {
@@ -39,7 +39,7 @@ namespace Alura.WebAPI.WebApp.Api
         }
 
         [HttpPost]
-        public IActionResult Alter(LivroUpload model)
+        public IActionResult Alter([FromBody] LivroUpload model)
         {
             if (ModelState.IsValid)
             {
