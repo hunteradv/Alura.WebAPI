@@ -5,7 +5,9 @@ using System.Linq;
 
 namespace Alura.WebAPI.WebApp.Api
 {
-    public class BooksController : Controller
+    [ApiController]
+    [Route("[controller]")]
+    public class BooksController : ControllerBase
     {
         private readonly IRepository<Livro> _repo;
 
@@ -15,6 +17,13 @@ namespace Alura.WebAPI.WebApp.Api
         }
 
         [HttpGet]
+        public IActionResult BooksList()
+        {
+            var list = _repo.All.Select(l => l.ToModel()).ToList();
+            return Ok(list);
+        }
+
+        [HttpGet("{id}")]
         public IActionResult Recovery(int id)
         {
             var model = _repo.Find(id);
@@ -22,7 +31,7 @@ namespace Alura.WebAPI.WebApp.Api
             {
                 return NotFound();
             }
-            return Json(model.ToModel());
+            return Ok(model.ToModel());
         }
 
         [HttpPost]
@@ -38,7 +47,7 @@ namespace Alura.WebAPI.WebApp.Api
             return BadRequest(); //201
         }
 
-        [HttpPost]
+        [HttpPut]
         public IActionResult Alter([FromBody] LivroUpload model)
         {
             if (ModelState.IsValid)
@@ -57,7 +66,7 @@ namespace Alura.WebAPI.WebApp.Api
             return BadRequest();
         }
 
-        [HttpPost]
+        [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
             var model = _repo.Find(id);
