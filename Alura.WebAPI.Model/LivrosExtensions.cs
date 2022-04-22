@@ -33,17 +33,17 @@ namespace Alura.ListaLeitura.Modelos
             };
         }
 
-        public static LivroApi ToApi(this Livro livro)
+        public static LivroApi ToApi(this Livro book)
         {
             return new LivroApi
             {
-                Id = livro.Id,
-                Titulo = livro.Titulo,
-                Subtitulo = livro.Subtitulo,
-                Resumo = livro.Resumo,
-                Autor = livro.Autor,
-                Capa = $"/api/capas/{livro.Id}",
-                Lista = livro.Lista.ParaString()
+                Id = book.Id,
+                Titulo = book.Titulo,
+                Subtitulo = book.Subtitulo,
+                Resumo = book.Resumo,
+                Autor = book.Autor,
+                CoverImage = $"books/{book.Id}/cover",
+                Lista = book.Lista
             };
         }
 
