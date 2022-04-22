@@ -8,7 +8,7 @@ using ReadList = Alura.ListaLeitura.Modelos.ListaLeitura;
 namespace Alura.WebAPI.WebApp.Api
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ReadListsController : ControllerBase
     {
         private readonly IRepository<Livro> _repo;
