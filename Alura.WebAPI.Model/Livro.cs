@@ -23,7 +23,7 @@ namespace Alura.ListaLeitura.Modelos
         public string Resumo { get; set; }
         public string CoverImage { get; set; }
         public string Autor { get; set; }
-        public TipoListaLeitura Lista { get; set; }
+        public string Lista { get; set; }
     }
 
     public class LivroUpload

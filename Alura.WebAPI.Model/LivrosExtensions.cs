@@ -43,7 +43,7 @@ namespace Alura.ListaLeitura.Modelos
                 Resumo = book.Resumo,
                 Autor = book.Autor,
                 CoverImage = $"books/{book.Id}/cover",
-                Lista = book.Lista
+                Lista = book.Lista.ParaString()
             };
         }
 
