@@ -42,7 +42,7 @@ namespace Alura.ListaLeitura.Modelos
                 Subtitulo = book.Subtitulo,
                 Resumo = book.Resumo,
                 Autor = book.Autor,
-                CoverImage = $"books/{book.Id}/cover",
+                CoverImage = $"/api/books/{book.Id}/capa",
                 Lista = book.Lista.ParaString()
             };
         }
