@@ -8,7 +8,7 @@ using ReadList = Alura.ListaLeitura.Modelos.ListaLeitura;
 
 namespace Alura.WebAPI.WebApp.Api
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ReadListsController : ControllerBase
@@ -45,13 +45,6 @@ namespace Alura.WebAPI.WebApp.Api
         [HttpGet("{type}")]
         public IActionResult Recovery(TipoListaLeitura type)
         {
-            var header = this.HttpContext.Request.Headers;
-
-            if(!header.ContainsKey("Authorization") || !(header["Authorization"] == "123"))
-            {
-                return StatusCode(401);
-            } 
-
             var list = CreateList(type);
             return Ok(list);
         }
