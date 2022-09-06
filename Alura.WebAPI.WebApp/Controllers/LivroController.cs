@@ -42,6 +42,7 @@ namespace Alura.ListaLeitura.WebApp.Controllers
                 .Where(l => l.Id == id)
                 .Select(l => l.ImagemCapa)
                 .FirstOrDefault();
+
             if (img != null)
             {
                 return File(img, "image/png");

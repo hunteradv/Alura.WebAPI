@@ -14,7 +14,7 @@ namespace Alura.ListaLeitura.Modelos
             using (var inputStream = image.OpenReadStream())
             using (var stream = new MemoryStream())
             {
-                inputStream.CopyTo(stream);
+                inputStream.CopyTo(stream); 
                 return stream.ToArray();
             }
         }
@@ -42,7 +42,7 @@ namespace Alura.ListaLeitura.Modelos
                 Subtitulo = livro.Subtitulo,
                 Resumo = livro.Resumo,
                 Autor = livro.Autor,
-                Capa = $"/api/capas/{livro.Id}",
+                ImagemCapa = $"livros/{livro.Id}/capa",
                 Lista = livro.Lista.ParaString()
             };
         }
